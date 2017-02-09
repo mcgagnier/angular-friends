@@ -23,15 +23,15 @@
         <input class="form-control" placeholder="Search Name" ng-model="friendFilter.name">
         <input class="form-control" placeholder="Search Location" ng-model="friendFilter.current_location.$">
 
-        <select class="input-medium">
-          <option>Name</option>
-          <option>#Friends</option>
-          <option>City</option>
-          <option>State</option>
-          <option>Country</option>
+        <select class="input-medium" ng-model="sortProp">
+          <option value="name">Name</option>
+          <option value="friend_count">#Friends</option>
+          <option value="location.city">City</option>
+          <option value="location.state">State</option>
+          <option value="location.country">Country</option>
         </select>
 
-        <select class="input-medium">
+        <select class="input-medium" ng-model="sortDirection">
           <option value="+">Descending</option>
           <option value="-">Ascending</option>
         </select>
