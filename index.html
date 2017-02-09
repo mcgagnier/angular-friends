@@ -14,14 +14,14 @@
   <div class="friends">
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
-
+          <!-- <input class="form-control" placeholder="Search Name" ng-model="search.name">
+          <input class="form-control" placeholder="Search Location" ng-model="search.current_location.name"> -->
+          <!-- <input class="form-control" placeholder="Search Anything About Your Friends"
+                        ng-model="friendFilter"> -->
         <!-- <input class="form-control" placeholder="Search Anything About Your Friends"> -->
         <!-- STEP 5: Get rid of the one above when you uncomment the below-->
-        <input class="form-control" placeholder="Search Anything About Your Friends" ng-model"friendFilter">
-        <!-- <input class="form-control" placeholder="Search Name" ng-model"friendFilter.name>
-        <input class="form-control" placeholder="Search Location"> -->
-         <!-- <li ng-repeat="friend in friends | filter: friendFilter.name"> -->
-         <li ng-repeat="friend in friends | filter: friendFilter">
+        <input class="form-control" placeholder="Search Name" ng-model="friendFilter.name">
+        <input class="form-control" placeholder="Search Location" ng-model="friendFilter.current_location.$">
 
         <select class="input-medium">
           <option>Name</option>
@@ -40,34 +40,33 @@
     </form>
 
     <ul>
-      <li class='friend' ng-repeat="friend in friends">
-        <img class="profile-pic"
-        ng-src='{{friend.pic_square}}'>
+        <li class='friend' ng-repeat="friend in friends | filter: friendFilter | orderBy: sortDirection + sortProp">
+            <img class="profile-pic" ng-src='{{friend.pic_square}}'>
 
-        <h3>{{friend.name}}</h3>
+            <h3>{{friend.name}}</h3>
 
-        <div class="location">
-          Location:
-          {{friend.current_location.city}},
-          {{friend.current_location.state}},
-          {{friend.current_location.country}},
-        </div>
+            <div class="location">
+              Location:
+              {{friend.current_location.city}},
+              {{friend.current_location.state}},
+              {{friend.current_location.country}},
+            </div>
 
-        <div class="status">
-            Status: {{friend.status.message}}
-        </div>
+            <div class="status">
+                Status: {{friend.status.message}}
+            </div>
 
-        <div class="num-friends">
-          Friends: 1,367
-        </div>
-      </li>
+            <div class="num-friends">
+              Friends: {{friend.friend_count}}
+            </div>
+        </li>
     </ul>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script> -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js">
         </script>
   <script src="app.js"></script>
   <script src="FriendController.js"></script>

@@ -1,6 +1,6 @@
 angular.module("app", [])
     .controller("FriendController", function($scope){
-        $scope.test = "Hello World";
+        // $scope.test = "Hello World";
         $scope.friends = [
           {
             "name": "Preston McNeil",
